@@ -1,17 +1,17 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC.models;
+within HTSE.Electrolysers.SOEC.models;
 model electrolyzer_module "semi autonomus module for the TANDEM project, HTSE part"
 
 import Modelica.Units.SI;
-import SubPos=CEA_Energy_Process_library.Utilities.UtilitiesFunction.SubstancePosition;
+import SubPos=HTSE.Utilities.UtilitiesFunction.SubstancePosition;
 
 replaceable package Medium_MoistH2 =
-      CEA_Energy_Process_library.Media.Predefined.Mixture.Gas.IdealGasMixture_H2O_H2_N2;
+      HTSE.Media.Predefined.Mixture.Gas.IdealGasMixture_H2O_H2_N2;
 
 // replaceable package Medium_MoistH2 =
 //      Media.Gas.Predefined.MoistGas.IdealGasMoistH2  constrainedby  Modelica.Media.Interfaces.PartialMedium   "Moist Hydrogen Model"   annotation (Dialog(group="Fluids"));
 
 replaceable package Medium_Air =
-      CEA_Energy_Process_library.Media.Predefined.PureSubstance.Gas.Air.IdealGasAir;
+      HTSE.Media.Predefined.PureSubstance.Gas.Air.IdealGasAir;
 
 parameter SI.MassFlowRate m_flow_start=0 "Simulation start value mass flow at fluid interfaces" annotation (Dialog(group="Initial values"));
 parameter SI.Pressure p_start_an=101325 "Cathode Simulation start value pressure " annotation (Dialog(group="Initial values"));
@@ -46,7 +46,7 @@ constant Integer Pos_H2O=SubPos(Name="H2O",nS=Medium_MoistH2.nX,NameMatrix=Mediu
         origin={40,110})));
 
 protected
-  CEA_Energy_Process_library.Electrolysers.SOEC.Bus.ControlBus temperature_transmission annotation (Placement(transformation(extent={{108,-100},{148,-60}})));
+  HTSE.Electrolysers.SOEC.Bus.ControlBus temperature_transmission annotation (Placement(transformation(extent={{108,-100},{148,-60}})));
 equation
 
   connect(physical.controlBus, control.controlBus) annotation (Line(

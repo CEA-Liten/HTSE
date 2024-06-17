@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Data;
+within HTSE.Electrolysers.SOEC.BaseClasses.Data;
 partial record partialParameter
 
 end partialParameter;

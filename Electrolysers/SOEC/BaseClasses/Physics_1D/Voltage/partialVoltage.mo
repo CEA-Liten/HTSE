@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage;
+within HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage;
 partial model partialVoltage "base class for all voltage submodels"
   annotation (Icon(graphics={
         Rectangle(

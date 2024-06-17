@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Temperature;
+within HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Temperature;
 partial model partialTemperature "partial model for temperature"
 
       annotation (Icon(graphics={

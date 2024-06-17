@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC.Bus;
+within HTSE.Electrolysers.SOEC.Bus;
 expandable connector ControlBus "Control bus that is adapted to the signals connected to it"
  import    Modelica.Units.SI;
 

@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D;
+within HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D;
 package Temperature
     extends Modelica.Icons.Package;
 

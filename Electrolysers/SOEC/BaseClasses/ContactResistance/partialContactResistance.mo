@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.ContactResistance;
+within HTSE.Electrolysers.SOEC.BaseClasses.ContactResistance;
 partial function partialContactResistance
 
 end partialContactResistance;
