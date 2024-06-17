@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.GeneralCircuitry.Interfaces;
+within HTSE.GeneralCircuitry.Interfaces;
 partial model PartialTwoPort  "Partial element transporting fluid between two ports without storage of mass or energy"
 
 //________________________________________________________________________________//

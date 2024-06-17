@@ -1,4 +1,4 @@
-﻿within CEA_Energy_Process_library.GeneralCircuitry.Pipe;
+﻿within HTSE.GeneralCircuitry.Pipe;
 model Pipe_L1 "Pressure losses from linear or quadratic law dp=KV^n - K coefficient calculated using nominal values of pressure losses and mass/volumic flow  "
 
 //________________________________________________________________________________//

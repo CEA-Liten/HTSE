@@ -1,8 +1,8 @@
-﻿within CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage;
+﻿within HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage;
 model voltage "equations from the publication of Jérôme Laurencin"
   extends partialVoltage;
  import Modelica.Units.SI;
-  import SubPos = CEA_Energy_Process_library.Utilities.UtilitiesFunction.SubstancePosition;
+  import SubPos = HTSE.Utilities.UtilitiesFunction.SubstancePosition;
   import Cst = Modelica.Constants;
   import math = Modelica.Math;
 
@@ -10,7 +10,7 @@ model voltage "equations from the publication of Jérôme Laurencin"
  outer parameter Integer N;
  outer parameter Integer n_stacks;
  outer parameter Integer n_cells;
-  outer parameter CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Data.cell_parameter data;
+  outer parameter HTSE.Electrolysers.SOEC.BaseClasses.Data.cell_parameter data;
  parameter SI.Resistance Rc = data.epc / data.rhoNI8YSZ "cathode electrical resistance";
  parameter SI.Resistance Ra = data.epa / data.rhoLSM "anode electrical resistance";
 
@@ -40,11 +40,11 @@ model voltage "equations from the publication of Jérôme Laurencin"
   //media
 
   replaceable package Medium_Air =
-   CEA_Energy_Process_library.Media.Predefined.PureSubstance.Gas.Air.IdealGasAir
+   HTSE.Media.Predefined.PureSubstance.Gas.Air.IdealGasAir
    constrainedby Modelica.Media.Interfaces.PartialMedium "Air model"  annotation (Dialog(group="Fluids"));
 
  replaceable package Medium_Fuel =
-   CEA_Energy_Process_library.Media.Predefined.Mixture.Gas.IdealGasMixture_H2O_H2_N2
+   HTSE.Media.Predefined.Mixture.Gas.IdealGasMixture_H2O_H2_N2
  constrainedby Modelica.Media.Interfaces.PartialMedium "fuel media";
 
     Modelica.Electrical.Analog.Interfaces.PositivePin p_submodel annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
@@ -91,7 +91,7 @@ equation
 
  //Ohmic overpotential
  Re[j] = data.epe / (466*1e2*exp(-9934/T_nodes[j]));
-    Rcont[j] = CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.ContactResistance.contactResistance(T_nodes[j]);
+    Rcont[j] = HTSE.Electrolysers.SOEC.BaseClasses.ContactResistance.contactResistance(T_nodes[j]);
  V_ohm[j] = (Rc + Ra + Re[j] + Rcont[j]) * I_dens[j];
 
  //concentration overpotential

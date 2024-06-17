@@ -1,5 +1,5 @@
-within CEA_Energy_Process_library.Media;
+within HTSE.Media;
 package Predefined
-     extends CEA_Energy_Process_library.Icons.BasePackage;
+     extends HTSE.Icons.BasePackage;
 
 end Predefined;

@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Media.Predefined.Mixture.Gas;
+within HTSE.Media.Predefined.Mixture.Gas;
 package IdealGasMixture_H2O_H2_N2
  extends Modelica.Media.IdealGases.Common.MixtureGasNasa(
   mediumName="SOEC_H2_H2O_N2",
@@ -10,7 +10,7 @@ package IdealGasMixture_H2O_H2_N2
  constant Integer H2=2   "Index of H2 (in substanceNames, massFractions X, etc.)";
   constant Integer N2=3   "Index of H2 (in substanceNames, massFractions X, etc.)";
 
-  extends CEA_Energy_Process_library.Icons.VariantPackage;
+  extends HTSE.Icons.VariantPackage;
 
   annotation (Documentation(info="<html>
 <p>Ideal gas model applied to the mixture of hydrogen, steam and nitrogen typically used in high temperature steam electrolysers.</p>

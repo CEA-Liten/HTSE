@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Data;
+within HTSE.Electrolysers.SOEC.BaseClasses.Data;
 partial record baseParameter "basic values common il all characteristics records"
     extends Modelica.Icons.Record;
 

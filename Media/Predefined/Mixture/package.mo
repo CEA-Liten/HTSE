@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Media.Predefined;
+within HTSE.Media.Predefined;
 package Mixture
   extends Icons.VariantPackage;
 

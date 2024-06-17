@@ -1,6 +1,6 @@
-within CEA_Energy_Process_library;
+within HTSE;
 package Utilities
-   extends CEA_Energy_Process_library.Icons.Package;
+   extends HTSE.Icons.Package;
 
-   annotation (Icon(graphics={Bitmap(extent={{-122,-98},{106,112}}, fileName="modelica://CEA_Energy_Process_library/Images/Tool.png")}));
+   annotation (Icon(graphics={Bitmap(extent={{-122,-98},{106,112}}, fileName="modelica://HTSE/Images/Tool.png")}));
 end Utilities;

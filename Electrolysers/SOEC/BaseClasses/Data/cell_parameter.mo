@@ -1,4 +1,4 @@
-﻿within CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Data;
+﻿within HTSE.Electrolysers.SOEC.BaseClasses.Data;
 record cell_parameter "Record used for Basic specification of an empirical model of Electrolyzer SOEC stack"
 
   extends BaseClasses.Data.baseParameter;

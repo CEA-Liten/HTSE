@@ -1,6 +1,6 @@
-within CEA_Energy_Process_library.Media.Predefined.PureSubstance.Gas;
+within HTSE.Media.Predefined.PureSubstance.Gas;
 package Air
-    extends CEA_Energy_Process_library.Icons.Package;
+    extends HTSE.Icons.Package;
 
   package IdealGasAir "Air as mixture of O2,N2"
   extends Modelica.Media.IdealGases.Common.MixtureGasNasa(
@@ -16,7 +16,7 @@ package Air
     reference_X=Modelica.Media.IdealGases.Common.MixtureGasNasa.moleToMassFractions({0.21,0.79},{Modelica.Media.IdealGases.Common.SingleGasesData.O2.MM,
           Modelica.Media.IdealGases.Common.SingleGasesData.N2.MM}));
 
-      extends CEA_Energy_Process_library.Icons.VariantPackage;
+      extends HTSE.Icons.VariantPackage;
 
      redeclare function dynamicViscosity
        "Return dynamic viscosity of dry air (simple polynomial, moisture influence small, valid from 123.15 K to 1273.15 K, outside of this range linear extrapolation is used)"
@@ -64,7 +64,7 @@ package Air
 </html>"));
   end IdealGasAir;
   annotation (Icon(graphics={Bitmap(extent={{-76,-80},{78,80}},
-            fileName="modelica://CEA_Energy_Process_library/Images/MoistGas.png")}),
+            fileName="modelica://HTSE/Images/MoistGas.png")}),
     Documentation(info="<html>
 <p>Air media model from the MSL.</p>
 </html>"));

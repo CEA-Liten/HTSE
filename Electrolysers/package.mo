@@ -1,6 +1,6 @@
-within CEA_Energy_Process_library;
+within HTSE;
 package Electrolysers
-extends CEA_Energy_Process_library.Icons.Package;
+extends HTSE.Icons.Package;
 
-  annotation (Icon(graphics={Bitmap(extent={{-76,-76},{84,80}},    fileName="modelica://CEA_Energy_Process_library/Images/Electrolyzer.png")}));
+  annotation (Icon(graphics={Bitmap(extent={{-76,-76},{84,80}},    fileName="modelica://HTSE/Images/Electrolyzer.png")}));
 end Electrolysers;

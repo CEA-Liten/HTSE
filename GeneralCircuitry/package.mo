@@ -1,6 +1,6 @@
-within CEA_Energy_Process_library;
+within HTSE;
 package GeneralCircuitry
-   extends CEA_Energy_Process_library.Icons.Package;
+   extends HTSE.Icons.Package;
 
-  annotation (Icon(graphics={Bitmap(extent={{-86,-70},{64,72}}, fileName="modelica://CEA_Energy_Process_library/Images/Auxiliary.png")}));
+  annotation (Icon(graphics={Bitmap(extent={{-86,-70},{64,72}}, fileName="modelica://HTSE/Images/Auxiliary.png")}));
 end GeneralCircuitry;

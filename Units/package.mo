@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library;
+within HTSE;
 package Units "Library of type and unit definitions"
   extends Modelica.Icons.Package;
 

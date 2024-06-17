@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Media.Predefined.Mixture;
+within HTSE.Media.Predefined.Mixture;
 package Gas
   extends Icons.VariantPackage;
 

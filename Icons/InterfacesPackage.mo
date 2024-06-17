@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Icons;
+within HTSE.Icons;
 partial package InterfacesPackage
   annotation (Icon(graphics={
         Rectangle(

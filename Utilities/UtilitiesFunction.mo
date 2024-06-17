@@ -1,6 +1,6 @@
-within CEA_Energy_Process_library.Utilities;
+within HTSE.Utilities;
 package UtilitiesFunction
-    extends CEA_Energy_Process_library.Icons.BasePackage;
+    extends HTSE.Icons.BasePackage;
 
   function SubstancePosition
     "return position of substance in X or C array, -1 if not present"

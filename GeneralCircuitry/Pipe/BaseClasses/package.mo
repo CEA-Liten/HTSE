@@ -1,5 +1,5 @@
-within CEA_Energy_Process_library.GeneralCircuitry.Pipe;
+within HTSE.GeneralCircuitry.Pipe;
 package BaseClasses
-extends CEA_Energy_Process_library.Icons.BasePackage;
+extends HTSE.Icons.BasePackage;
 
 end BaseClasses;

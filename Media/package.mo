@@ -1,6 +1,6 @@
-within CEA_Energy_Process_library;
+within HTSE;
 package Media "Libraries of media"
-  extends CEA_Energy_Process_library.Icons.Package;
+  extends HTSE.Icons.Package;
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
         graphics={

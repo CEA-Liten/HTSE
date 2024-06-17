@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Temperature;
+within HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Temperature;
 model thermoneutralTemperature "adaptative temperature to maintain thermoneutral voltage"
   extends partialTemperature;
   import Modelica.Units.SI;

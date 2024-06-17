@@ -1,6 +1,6 @@
-within CEA_Energy_Process_library.GeneralCircuitry;
+within HTSE.GeneralCircuitry;
 package Pipe
-   extends CEA_Energy_Process_library.Icons.Package;
+   extends HTSE.Icons.Package;
 
   annotation (Icon(graphics={
         Ellipse(

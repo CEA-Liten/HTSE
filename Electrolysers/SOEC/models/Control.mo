@@ -1,23 +1,23 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC.models;
+within HTSE.Electrolysers.SOEC.models;
 model Control
   "submodel for the electroliser_module"
-  Modelica.Blocks.Sources.RealExpression stack_current(y=water_fraction/0.9*max({Fuel_In_m_flow/1*21700,0}))             annotation (Placement(transformation(extent={{100,78},{80,98}})));
+  Modelica.Blocks.Sources.RealExpression stack_current(y=water_fraction/0.9*max({Fuel_In_m_flow/1*21700,0}))             annotation (Placement(transformation(extent={{144,74},{124,94}})));
   Modelica.Blocks.Sources.Ramp Current_ramp(
     height=1,
     duration=300,
     offset=0,
-    startTime=300) annotation (Placement(transformation(extent={{124,24},{108,40}})));
+    startTime=300) annotation (Placement(transformation(extent={{148,22},{132,38}})));
   Modelica.Blocks.Math.MultiProduct multiProduct2(nu=3) annotation (Placement(transformation(extent={{82,54},{70,66}})));
-  Modelica.Blocks.Nonlinear.FixedDelay fixedDelay(delayTime=60) annotation (Placement(transformation(extent={{30,50},{10,70}})));
+  Modelica.Blocks.Nonlinear.FixedDelay fixedDelay(delayTime=60) annotation (Placement(transformation(extent={{44,50},{24,70}})));
   Modelica.Blocks.Sources.RealExpression m_flow_N2_secure(y=max({0,0.1 - Fuel_In_m_flow})) annotation (Placement(transformation(extent={{-64,-58},{-44,-38}})));
   Modelica.Blocks.Math.Gain gain(k=2) annotation (Placement(transformation(
         extent={{-6,-6},{6,6}},
         rotation=180,
         origin={78,-4})));
   Modelica.Blocks.Sources.RealExpression m_flow_fuel(y=max({Fuel_In_m_flow,1e-8})) annotation (Placement(transformation(extent={{116,-14},{96,6}})));
-  CEA_Energy_Process_library.Electrolysers.SOEC.Bus.FeedbackBus feedbackBus annotation (Placement(transformation(extent={{-120,-22},{-80,18}}), iconTransformation(extent={{-120,-22},{-80,18}})));
+  HTSE.Electrolysers.SOEC.Bus.FeedbackBus feedbackBus annotation (Placement(transformation(extent={{-120,-22},{-80,18}}), iconTransformation(extent={{-120,-22},{-80,18}})));
 
-  CEA_Energy_Process_library.Electrolysers.SOEC.Bus.ControlBus controlBus annotation (Placement(transformation(extent={{-20,80},{20,120}}), iconTransformation(extent={{-20,80},{20,120}})));
+  HTSE.Electrolysers.SOEC.Bus.ControlBus controlBus annotation (Placement(transformation(extent={{-20,80},{20,120}}), iconTransformation(extent={{-20,80},{20,120}})));
 
   Modelica.Blocks.Sources.RealExpression temperature(y=SOEC_Temperature) annotation (Placement(transformation(extent={{-46,-38},{-26,-18}})));
   Modelica.Blocks.Sources.RealExpression stack_current1(y=smooth(1, if Fuel_In_m_flow < 0.1 then 0.0 else 1.0))          annotation (Placement(transformation(extent={{222,46},{202,66}})));
@@ -41,11 +41,11 @@ protected
         rotation=-90,
         origin={100,-20})));
 equation
-  connect(Current_ramp.y,multiProduct2. u[1]) annotation (Line(points={{107.2,32},{88,32},{88,58.6},{82,58.6}},   color={0,0,127}));
-  connect(stack_current.y,multiProduct2. u[2]) annotation (Line(points={{79,88},{76,88},{76,70},{86,70},{86,60},{82,60}},       color={0,0,127}));
-  connect(multiProduct2.y,fixedDelay. u) annotation (Line(points={{68.98,60},{32,60}},       color={0,0,127}));
+  connect(Current_ramp.y,multiProduct2. u[1]) annotation (Line(points={{131.2,30},{128,30},{128,58.6},{82,58.6}}, color={0,0,127}));
+  connect(stack_current.y,multiProduct2. u[2]) annotation (Line(points={{123,84},{88,84},{88,60},{82,60}},                      color={0,0,127}));
+  connect(multiProduct2.y,fixedDelay. u) annotation (Line(points={{68.98,60},{46,60}},       color={0,0,127}));
   connect(m_flow_fuel.y,gain. u) annotation (Line(points={{95,-4},{85.2,-4}},     color={0,0,127}));
-  connect(fixedDelay.y, controlBus.Stack_current) annotation (Line(points={{9,60},{0.1,60},{0.1,100.1}},       color={0,0,127}), Text(
+  connect(fixedDelay.y, controlBus.Stack_current) annotation (Line(points={{23,60},{0.1,60},{0.1,100.1}},      color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{6,3},{6,3}},

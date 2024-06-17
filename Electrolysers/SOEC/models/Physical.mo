@@ -1,18 +1,18 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC.models;
+within HTSE.Electrolysers.SOEC.models;
 model Physical
   "submodel for the electrolyser_module"
 
   import Modelica.Units.SI;
-import SubPos=CEA_Energy_Process_library.Utilities.UtilitiesFunction.SubstancePosition;
+import SubPos=HTSE.Utilities.UtilitiesFunction.SubstancePosition;
 
 replaceable package Medium_MoistH2 =
-      CEA_Energy_Process_library.Media.Predefined.Mixture.Gas.IdealGasMixture_H2O_H2_N2;
+      HTSE.Media.Predefined.Mixture.Gas.IdealGasMixture_H2O_H2_N2;
 
 // replaceable package Medium_MoistH2 =
 //      Media.Gas.Predefined.MoistGas.IdealGasMoistH2  constrainedby  Modelica.Media.Interfaces.PartialMedium   "Moist Hydrogen Model"   annotation (Dialog(group="Fluids"));
 
 replaceable package Medium_Air =
-      CEA_Energy_Process_library.Media.Predefined.PureSubstance.Gas.Air.IdealGasAir;
+      HTSE.Media.Predefined.PureSubstance.Gas.Air.IdealGasAir;
 
 parameter SI.MassFlowRate m_flow_start=0 "Simulation start value mass flow at fluid interfaces" annotation (Dialog(group="Initial values"));
 parameter SI.Pressure p_start_an=101325 "Cathode Simulation start value pressure " annotation (Dialog(group="Initial values"));
@@ -37,7 +37,7 @@ constant Integer Pos_H2O=SubPos(Name="H2O",nS=Medium_MoistH2.nX,NameMatrix=Mediu
   extent={{-12,-12},{12,12}},
   rotation=180,
   origin={38,-32})));
-  CEA_Energy_Process_library.GeneralCircuitry.Source.Source_m_flow_T
+  HTSE.GeneralCircuitry.Source.Source_m_flow_T
                                           air_inlet_anode(
     redeclare package Medium = Medium_Air,
     p_start=p_start_an,
@@ -45,7 +45,7 @@ constant Integer Pos_H2O=SubPos(Name="H2O",nS=Medium_MoistH2.nX,NameMatrix=Mediu
     use_T_in=true,
     use_C_in=false,
     use_X_in=false) annotation (Placement(transformation(extent={{-160,16},{-140,36}})));
-  CEA_Energy_Process_library.GeneralCircuitry.Source.Source_pT
+  HTSE.GeneralCircuitry.Source.Source_pT
                                     air_outlet_anode(
     redeclare package Medium = Medium_Air,
     m_flow_start=m_flow_start,
@@ -59,20 +59,20 @@ constant Integer Pos_H2O=SubPos(Name="H2O",nS=Medium_MoistH2.nX,NameMatrix=Mediu
     annotation (Placement(transformation(extent={{14,-44},{-14,-72}})));
   inner Modelica.Fluid.System system(m_flow_small=1e-8)
     annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
-  CEA_Energy_Process_library.Electrolysers.SOEC.models.SOEC_replaceable SOEC(
+  HTSE.Electrolysers.SOEC.models.SOEC_replaceable SOEC(
     n_stacks=400,
     SteamConversion=0.7,
     redeclare package Medium_Air = Medium_Air,
     redeclare package Medium_Fuel = Medium_MoistH2,
     N=20,
     n_cells=250,
-    redeclare CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage.voltage Voltage,
-    redeclare CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Temperature.thermoneutralTemperature Temperature,
-    redeclare CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Mass_Flow.coFlow coFlow) annotation (Placement(transformation(
+    redeclare HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage.voltage Voltage,
+    redeclare HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Temperature.thermoneutralTemperature Temperature,
+    redeclare HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Mass_Flow.coFlow coFlow) annotation (Placement(transformation(
         extent={{22,21.5},{-22,-21.5}},
         rotation=180,
         origin={0,12.5})));
-  CEA_Energy_Process_library.GeneralCircuitry.Source.Source_m_flow_T
+  HTSE.GeneralCircuitry.Source.Source_m_flow_T
                                           security_gas_inlet(
     redeclare package Medium = Medium_MoistH2,
     p_start=p_start_cat,
@@ -83,7 +83,7 @@ constant Integer Pos_H2O=SubPos(Name="H2O",nS=Medium_MoistH2.nX,NameMatrix=Mediu
     T=293.15,
     use_C_in=false,
     use_X_in=false) annotation (Placement(transformation(extent={{-160,-62},{-140,-42}})));
-  CEA_Energy_Process_library.GeneralCircuitry.Source.Source_m_flow_T
+  HTSE.GeneralCircuitry.Source.Source_m_flow_T
                                           security_gas_outlet(
     redeclare package Medium = Medium_MoistH2,
     p_start=p_start_cat,
@@ -112,8 +112,8 @@ constant Integer Pos_H2O=SubPos(Name="H2O",nS=Medium_MoistH2.nX,NameMatrix=Mediu
         rotation=90,
         origin={0,112})));
 
-  CEA_Energy_Process_library.Electrolysers.SOEC.Bus.ControlBus controlBus annotation (Placement(transformation(extent={{-20,-120},{20,-80}})));
-  CEA_Energy_Process_library.Electrolysers.SOEC.Bus.FeedbackBus feedbackBus annotation (Placement(transformation(extent={{-120,-94},{-80,-54}})));
+  HTSE.Electrolysers.SOEC.Bus.ControlBus controlBus annotation (Placement(transformation(extent={{-20,-120},{20,-80}})));
+  HTSE.Electrolysers.SOEC.Bus.FeedbackBus feedbackBus annotation (Placement(transformation(extent={{-120,-94},{-80,-54}})));
   Modelica.Blocks.Sources.RealExpression water_fraction(y=SOEC.n_fractions_cat[1, 1])                                    annotation (Placement(transformation(extent={{-40,-64},{-60,-44}})));
   Modelica.Blocks.Sources.RealExpression stackTemperature(y=SOEC.Temperature.T_work) annotation (Placement(transformation(extent={{-40,-84},{-60,-64}})));
   Modelica.Blocks.Sources.RealExpression Fuel_in_m_flow(y=Fuel_In.m_flow)                                                annotation (Placement(transformation(extent={{-40,-102},{-60,-82}})));

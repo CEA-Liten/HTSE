@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Units;
+within HTSE.Units;
 package SI "Library of SI unit definitions"
   extends Modelica.Icons.Package;
 

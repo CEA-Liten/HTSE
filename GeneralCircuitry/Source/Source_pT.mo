@@ -1,4 +1,4 @@
-﻿within CEA_Energy_Process_library.GeneralCircuitry.Source;
+﻿within HTSE.GeneralCircuitry.Source;
 model Source_pT "Similar to MSL Source"
 //François NEPVEU - CEA
 

@@ -1,8 +1,8 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC.models;
+within HTSE.Electrolysers.SOEC.models;
 model SOEC_replaceable "SOEC stack model with replaceable submodels"
 
     import Modelica.Units.SI;
-import SubPos=CEA_Energy_Process_library.Utilities.UtilitiesFunction.SubstancePosition;
+import SubPos=HTSE.Utilities.UtilitiesFunction.SubstancePosition;
 import Cst = Modelica.Constants;
 import math = Modelica.Math;
 
@@ -68,11 +68,11 @@ parameter Real SteamConversion = 0.7 annotation (Dialog(group="simulation parame
 
 //media
    replaceable package Medium_Air =
-    CEA_Energy_Process_library.Media.Predefined.PureSubstance.Gas.Air.IdealGasAir
+    HTSE.Media.Predefined.PureSubstance.Gas.Air.IdealGasAir
     constrainedby Modelica.Media.Interfaces.PartialMedium "Air model"  annotation (Dialog(group="Fluids"));
 
  replaceable package Medium_Fuel =
-    CEA_Energy_Process_library.Media.Predefined.Mixture.Gas.IdealGasMixture_H2O_H2_N2
+    HTSE.Media.Predefined.Mixture.Gas.IdealGasMixture_H2O_H2_N2
   constrainedby Modelica.Media.Interfaces.PartialMedium
   annotation (choicesAllMatching = true,Dialog(group="Fluids"));
 
@@ -105,22 +105,22 @@ SI.Power P_el;
 SI.MassFlowRate m_flow_H2_producted;
 Real PCI;
 
-  replaceable CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage.voltage Voltage constrainedby CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage.partialVoltage annotation (
+  replaceable HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage.voltage Voltage constrainedby HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage.partialVoltage annotation (
     Dialog(group="Sub Models"),
     choicesAllMatching=true,
     Placement(transformation(extent={{-10,-90},{10,-70}})));
 
-  replaceable CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Temperature.thermoneutralTemperature Temperature constrainedby CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Temperature.partialTemperature annotation (
+  replaceable HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Temperature.thermoneutralTemperature Temperature constrainedby HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Temperature.partialTemperature annotation (
     Dialog(group="Sub Models"),
     choicesAllMatching=true,
     Placement(transformation(extent={{40,20},{60,40}})));
 
-  replaceable CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Mass_Flow.coFlow coFlow(redeclare package Medium_Air = Medium_Air, redeclare package Medium_Fuel = Medium_Fuel) constrainedby CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Mass_Flow.partialFlow annotation (
+  replaceable HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Mass_Flow.coFlow coFlow(redeclare package Medium_Air = Medium_Air, redeclare package Medium_Fuel = Medium_Fuel) constrainedby HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Mass_Flow.partialFlow annotation (
     Dialog(group="Sub Models"),
     choicesAllMatching=true,
     Placement(transformation(extent={{-10,-10},{10,10}})));
 
-  inner replaceable CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Data.cell_parameter data constrainedby CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Data.partialParameter annotation (
+  inner replaceable HTSE.Electrolysers.SOEC.BaseClasses.Data.cell_parameter data constrainedby HTSE.Electrolysers.SOEC.BaseClasses.Data.partialParameter annotation (
     Dialog(group="SOEC data"),
     choicesAllMatching=true,
     Placement(transformation(extent={{-60,20},{-40,40}})));

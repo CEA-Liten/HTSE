@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC;
+within HTSE.Electrolysers.SOEC;
 package Bus
 
   annotation (Icon(graphics={

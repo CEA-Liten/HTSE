@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Mass_Flow;
+within HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Mass_Flow;
 partial model partialFlow "partial model for flow inside the electrolyzer"
 
     annotation (Icon(graphics={

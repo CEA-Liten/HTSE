@@ -1,4 +1,4 @@
-﻿within CEA_Energy_Process_library.GeneralCircuitry.Pipe.BaseClasses;
+﻿within HTSE.GeneralCircuitry.Pipe.BaseClasses;
 partial model PartialPipe
 
 //François NEPVEU - CEA
@@ -14,7 +14,7 @@ import Modelica.Media.Interfaces.Choices.IndependentVariables;
 
 // _________________________________________________________________________________________________
 //         Interfaces
-extends CEA_Energy_Process_library.GeneralCircuitry.Interfaces.PartialTwoPort;
+extends HTSE.GeneralCircuitry.Interfaces.PartialTwoPort;
 // _________________________________________________________________________________________________
 
 // _________________________________________________________________________________________________

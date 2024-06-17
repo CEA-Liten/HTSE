@@ -1,5 +1,5 @@
-within CEA_Energy_Process_library.Electrolysers.SOEC;
+within HTSE.Electrolysers.SOEC;
 package BaseClasses
-extends CEA_Energy_Process_library.Icons.BasePackage;
+extends HTSE.Icons.BasePackage;
 
 end BaseClasses;

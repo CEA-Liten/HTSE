@@ -1,8 +1,8 @@
-﻿within CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Physics_1D.Mass_Flow;
+﻿within HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Mass_Flow;
 model coFlow "simple co flow configuration"
   extends partialFlow;
   import Modelica.Units.SI;
-import SubPos=CEA_Energy_Process_library.Utilities.UtilitiesFunction.SubstancePosition;
+import SubPos=HTSE.Utilities.UtilitiesFunction.SubstancePosition;
 import Cst = Modelica.Constants;
 import math = Modelica.Math;
 
@@ -69,11 +69,11 @@ Real DeffO2k[N];
 Real k4[N] "integrated coefficient from DGM";
 
     replaceable package Medium_Air =
-    CEA_Energy_Process_library.Media.Predefined.PureSubstance.Gas.Air.IdealGasAir
+    HTSE.Media.Predefined.PureSubstance.Gas.Air.IdealGasAir
     constrainedby Modelica.Media.Interfaces.PartialMedium "Air model"  annotation (Dialog(group="Fluids"));
 
   replaceable package Medium_Fuel =
-    CEA_Energy_Process_library.Media.Predefined.Mixture.Gas.IdealGasMixture_H2O_H2_N2
+    HTSE.Media.Predefined.Mixture.Gas.IdealGasMixture_H2O_H2_N2
   constrainedby Modelica.Media.Interfaces.PartialMedium
   annotation (choicesAllMatching = true,Dialog(group="Fluids"));
 
@@ -88,7 +88,7 @@ Medium_Air.BaseProperties[N] state_an(
                                          each p(start = cat_p_start),
                                          each  X(start={0.9,0.1,0}));
 
-  parameter CEA_Energy_Process_library.Electrolysers.SOEC.BaseClasses.Data.cell_parameter data;
+  parameter HTSE.Electrolysers.SOEC.BaseClasses.Data.cell_parameter data;
 
    Modelica.Fluid.Interfaces.FluidPort_b an_out_port_submodel(redeclare package Medium = Medium_Air) annotation (Placement(transformation(extent={{90,50},{110,70}})));
    Modelica.Fluid.Interfaces.FluidPort_a cat_in_port_submodel(redeclare package Medium = Medium_Fuel) annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));

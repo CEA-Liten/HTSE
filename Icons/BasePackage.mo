@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library.Icons;
+within HTSE.Icons;
 partial package BasePackage
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
         Rectangle(

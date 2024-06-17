@@ -7,14 +7,14 @@ This is the development site for the HTSE CEA open source model and its user gui
 
 This MODELICA High Temperature Steam Electrolysis model (HTSE) is a free open-source code used inside the TANDEM library. This library contains models for a small modular nuclear reactor and the industrial environment around it (heat network, h2 production, electrical grid etc.)
 
-1.	HIGH TEMPERATURE STEAM ELECTROLYSIS (HTSE)
-1.1	Component description 
+### 1.	HIGH TEMPERATURE STEAM ELECTROLYSIS (HTSE)
+#### 1.1	Component description 
 High temperature steam electrolysis is an archetype of electrolysis, using an auxiliary heat source to decrease the electrical power required to convert water into hydrogen. It is the most electrically efficient type of electrolyser, but it requires a constant and high heat flow rate. This makes it a good candidate to pair with an SMR since nuclear reactors are producers of electricity and heat. The HTSE component produces H2 in a Solid Oxide Electrolyser Cell, operating at high temperature (about 750 °C). To do so, the steam is produced and pre-heated by using thermal power coming from the external source, i.e. a SMR plant. 
  
-1.2	Hypotheses 
-1.2.1	Stack  
+#### 1.2	Hypotheses 
+##### 1.2.1	Stack  
 The stack model assumptions can be divided in two parts, the conversion assumptions which are linked to how much hydrogen is produced given an electrical and thermodynamic state, and the encapsulation assumptions, which dictates how the model behaves given steam mass flow rate: 
-1.2.2	The conversion assumptions : the model for the conversion of hydrogen is described in the scientific publication : J. Laurencin et al. Modelling of solid oxide steam electrolyser: Impact of the operating conditions on hydrogen production, Journal of Power Sources, Volume 196, Issue 4, 2011. The overall assumptions are:  
+##### 1.2.2	The conversion assumptions : the model for the conversion of hydrogen is described in the scientific publication : J. Laurencin et al. Modelling of solid oxide steam electrolyser: Impact of the operating conditions on hydrogen production, Journal of Power Sources, Volume 196, Issue 4, 2011. The overall assumptions are:  
 
 •	Every cells in every stack are strictly identical. 
 •	The description of the cell is one dimensional. We consider that all the channels providing gas to the cells are identical. We make no difference between the edge and the centre of the cell (where in reality some differences would appear especially thermally). 
@@ -23,7 +23,7 @@ The stack model assumptions can be divided in two parts, the conversion assumpti
 •	The cells data comes from the paper from J. Laurencin cited above. They can be easily replaced by the user’s specific cells characteristics using the same format.
 •	The current is always computed to convert 70% of the steam provided in the steam entry connector. This steam conversion is quite standard for a standard working High Temperature Steam Electrolyser. A delay of 60s is introduced for the current to synchronise with the mass flow rate. (A valid hypothesis compared to reality, also allows for Dymola to simulate since both the current and the steam are not "provided" at the same time). 
 
-1.2.3	The encapsulation assumptions:   How the components close to the stack are controlled and what hypotheses did we consider around them. 
+##### 1.2.3	The encapsulation assumptions:   How the components close to the stack are controlled and what hypotheses did we consider around them. 
 
 •	A mass flow of pure hydrogen transiting through the stack is provided in case no fuel is coming from the BOP. No current is used to convert steam into hydrogen while the mass flow rate remains less then 10% of the nominal one. 
 •	The anode gas is air, the mass flow rate is roughly two times the Fuel mass flow rate, as is often seen in the literature. 
@@ -34,7 +34,7 @@ The stack model assumptions can be divided in two parts, the conversion assumpti
  
  
  
-1.2.4	The stack model 
+###### 1.2.4	The stack model 
 The following is the description of the stack model as detailed in the MODELICA code documentation.
 
 Stack’s Ins and Outs

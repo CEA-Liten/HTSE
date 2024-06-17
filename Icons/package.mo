@@ -1,4 +1,4 @@
-within CEA_Energy_Process_library;
+within HTSE;
 package Icons
 
 partial package Package
@@ -16,7 +16,6 @@ partial package Package
 <p>Standard package icon.</p>
 </html>"));
 end Package;
-
   annotation (Icon(graphics={
         Rectangle(
           lineColor={200,200,200},
