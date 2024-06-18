@@ -76,7 +76,7 @@ constant Integer Pos_H2O=SubPos(Name="H2O",nS=Medium_MoistH2.nX,NameMatrix=Mediu
                                           security_gas_inlet(
     redeclare package Medium = Medium_MoistH2,
     p_start=p_start_cat,
-    X=Medium_MoistH2.moleToMassFractions({0.1,0.9,0}, Medium_MoistH2.MMX),
+    X=Medium_MoistH2.moleToMassFractions({0.9,0.1,0}, Medium_MoistH2.MMX),
     use_m_flow_in=true,
     use_T_in=true,
     m_flow=1e-6,
@@ -87,7 +87,7 @@ constant Integer Pos_H2O=SubPos(Name="H2O",nS=Medium_MoistH2.nX,NameMatrix=Mediu
                                           security_gas_outlet(
     redeclare package Medium = Medium_MoistH2,
     p_start=p_start_cat,
-    X=Medium_MoistH2.moleToMassFractions({1,0,0}, Medium_MoistH2.MMX),
+    X=Medium_MoistH2.moleToMassFractions({0.9,0.1,0}, Medium_MoistH2.MMX),
     use_m_flow_in=true,
     use_T_in=false,
     m_flow=1e-6,

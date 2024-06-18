@@ -5,7 +5,7 @@ model test_uni
     redeclare package Medium = HTSE.Media.Predefined.Mixture.Gas.IdealGasMixture_H2O_H2_N2,
     m_flow=1,
     X={0.98,0.02,0},
-    use_m_flow_in=false,
+    use_m_flow_in=true,
     use_T_in=false,
     use_C_in=false,
     use_X_in=false) annotation (Placement(transformation(extent={{-96,-10},{-76,10}})));
