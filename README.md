@@ -17,18 +17,27 @@ The stack model assumptions can be divided in two parts, the conversion assumpti
 ##### 1.2.2	The conversion assumptions : the model for the conversion of hydrogen is described in the scientific publication : J. Laurencin et al. Modelling of solid oxide steam electrolyser: Impact of the operating conditions on hydrogen production, Journal of Power Sources, Volume 196, Issue 4, 2011. The overall assumptions are:  
 
 •	Every cells in every stack are strictly identical. 
+
 •	The description of the cell is one dimensional. We consider that all the channels providing gas to the cells are identical. We make no difference between the edge and the centre of the cell (where in reality some differences would appear especially thermally). 
+
 •	The temperature of the cell is maintained uniformly throughout the cell and is regulated by a PID controller to follow to the thermoneutral voltage (ensuring the most efficient hydrogen conversion since no heat is produced or consumed by the electrochemical reaction). We could summarize by saying the stack is perfectly controlled in temperature. 
+
 •	The flow of gas is co-linear, the gases flow from the cathode and anode are parallel and in the same direction. Only this model is provided but other type of flow can be implemented in the structure. 
+
 •	The cells data comes from the paper from J. Laurencin cited above. They can be easily replaced by the user’s specific cells characteristics using the same format.
+
 •	The current is always computed to convert 70% of the steam provided in the steam entry connector. This steam conversion is quite standard for a standard working High Temperature Steam Electrolyser. A delay of 60s is introduced for the current to synchronise with the mass flow rate. (A valid hypothesis compared to reality, also allows for Dymola to simulate since both the current and the steam are not "provided" at the same time). 
 
 ##### 1.2.3	The encapsulation assumptions:   How the components close to the stack are controlled and what hypotheses did we consider around them. 
 
 •	A mass flow of pure hydrogen transiting through the stack is provided in case no fuel is coming from the BOP. No current is used to convert steam into hydrogen while the mass flow rate remains less then 10% of the nominal one. 
+
 •	The anode gas is air, the mass flow rate is roughly two times the Fuel mass flow rate, as is often seen in the literature. 
+
 •	Electrical power is computed as the product of the current and voltage provided to the overall stack. A conversion efficiency of 0.9 is considered from the grid current. 
+
 •	The pressure losses are linear and depend on the mass flow rate of gas. We consider half of the overall pressure loss is imposed at the entrance and half is imposed at the exit of the cell. 
+
 •	The media used is a perfect mixture of hydrogen, steam and nitrogen.
 
  
@@ -50,15 +59,23 @@ The model is interfaced with 4 fluid ports (in anode, out anode, in cathode, out
 The model is discretized along the gas channel to better represent the current density repartition inside the cell. The model aggregates various sub-models and components that communicate with each other through outer variables : 
 
 •	The fluidic model: transport equations and link to the fluid ports. The sub model is mostly composed of equations that describes either a co-flow/counter-flow/crossflow type of fluid movement and the interactions between molar fractions of gas components and current density. The electrolyte crossing of gas components is handled here. 
+
 •	The electro chemical model: equations between current density, molar fractions and voltages. The main outputs are the cell voltage and the current density repartition along the 1D/2D cell. 
+
 •	The thermic model: computes the temperatures along the electrolyser cell.  
+
 •	The pressure mode: computes the pressure drop along the cell for various fluid movements.  
+
 •	A data record: Provides material/cell information and other parameters separating the cell characteristics from the rest of the Model. 
+
  The sub models are described in their own description sections in the MODELICA codes. The choices made for the TANDEM library are :  
  
 •	To keep the electro chemical model physical with equations from the literature.  
+
 •	To have a co-flow fluid movement which means that gases in the anode and cathode channel flows in parallel and in the same direction. It is the simplest way to transport gases in the cell. 
+
 •	The temperature of the cell is computed to maintain the cell voltage to follow thermoneutral voltage using a basic PID.  
+
 •	Pressure losses are linear and averaged in the cell. 
 
 
