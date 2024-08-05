@@ -36,10 +36,10 @@ import math = Modelica.Math;
   "Initial electrolyzer temperature"
   annotation (Dialog(group="Initial values"));
 
- parameter SI.MassFraction[Medium_Air.nX] X_start_cat=Medium_Air.X_default
+ parameter SI.MassFraction[Medium_Fuel.nX] X_start_cat=Medium_Fuel.X_default
   "Initial cathode Mass Fractions"
   annotation (Dialog(group="Initial values"));
-   parameter SI.MassFraction[Medium_Fuel.nX] X_start_an=Medium_Fuel.X_default
+   parameter SI.MassFraction[Medium_Air.nX] X_start_an=Medium_Air.X_default
   "Initial anode Mass Fractions" annotation (Dialog(group="Initial values"));
 
   //molar flow rates of the different components in anode and cathode gas channels
