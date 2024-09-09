@@ -32,7 +32,8 @@ constant Integer Pos_H2=SubPos(Name="H2",nS=Medium_MoistH2.nX,NameMatrix=Medium_
 constant Integer Pos_H2O=SubPos(Name="H2O",nS=Medium_MoistH2.nX,NameMatrix=Medium_MoistH2.substanceNames);
 
   models.Control control annotation (Placement(transformation(extent={{-50,-198},{50,-98}})));
-  models.Physical physical annotation (Placement(transformation(extent={{-64,-64},{64,64}})));
+  models.Physical physical(redeclare package Medium_MoistH2 = Medium_MoistH2, redeclare package Medium_Air = Medium_Air)
+                           annotation (Placement(transformation(extent={{-64,-64},{64,64}})));
 
   Modelica.Fluid.Interfaces.FluidPort_a Fuel_In(redeclare package Medium = Medium_MoistH2) annotation (Placement(transformation(extent={{-124,-24},{-76,24}}), iconTransformation(extent={{-124,-24},{-76,24}})));
   Modelica.Fluid.Interfaces.FluidPort_b Fuel_Out(redeclare package Medium = Medium_MoistH2) annotation (Placement(transformation(extent={{76,-24},{124,24}}), iconTransformation(extent={{76,-24},{124,24}})));

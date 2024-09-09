@@ -13,8 +13,6 @@ import math = Modelica.Math;
    Modelica.Fluid.Interfaces.FluidPort_b an_out_port(redeclare package Medium = Medium_Air)
   annotation (Placement(transformation(extent={{90,50},{110,70}})));
      Modelica.Fluid.Interfaces.FluidPort_a cat_in_port(
-        h_outflow(start = 3e6),
-   Xi_outflow( start = {0.98,0.02,0}),
      redeclare package Medium =
         Medium_Fuel)
   annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
@@ -67,11 +65,11 @@ parameter Real SteamConversion = 0.7 annotation (Dialog(group="simulation parame
   "position of water in the fuel media components";
 
 //media
-   replaceable package Medium_Air =
+  inner replaceable package Medium_Air =
     HTSE.Media.Predefined.PureSubstance.Gas.Air.IdealGasAir
     constrainedby Modelica.Media.Interfaces.PartialMedium "Air model"  annotation (Dialog(group="Fluids"));
 
- replaceable package Medium_Fuel =
+inner replaceable package Medium_Fuel =
     HTSE.Media.Predefined.Mixture.Gas.IdealGasMixture_H2O_H2_N2
   constrainedby Modelica.Media.Interfaces.PartialMedium
   annotation (choicesAllMatching = true,Dialog(group="Fluids"));
@@ -105,7 +103,8 @@ SI.Power P_el;
 SI.MassFlowRate m_flow_H2_producted;
 Real PCI;
 
-  replaceable HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage.voltage Voltage constrainedby HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage.partialVoltage annotation (
+  replaceable HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage.voltage Voltage(redeclare package Medium_Air = Medium_Air, redeclare package Medium_Fuel = Medium_Fuel)
+                                                                                     constrainedby HTSE.Electrolysers.SOEC.BaseClasses.Physics_1D.Voltage.partialVoltage annotation (
     Dialog(group="Sub Models"),
     choicesAllMatching=true,
     Placement(transformation(extent={{-10,-90},{10,-70}})));

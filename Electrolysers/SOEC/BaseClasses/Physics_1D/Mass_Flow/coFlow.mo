@@ -68,11 +68,11 @@ Real DeffO2[N];
 Real DeffO2k[N];
 Real k4[N] "integrated coefficient from DGM";
 
-    replaceable package Medium_Air =
+ outer replaceable package   Medium_Air =
     HTSE.Media.Predefined.PureSubstance.Gas.Air.IdealGasAir
     constrainedby Modelica.Media.Interfaces.PartialMedium "Air model"  annotation (Dialog(group="Fluids"));
 
-  replaceable package Medium_Fuel =
+outer replaceable package  Medium_Fuel =
     HTSE.Media.Predefined.Mixture.Gas.IdealGasMixture_H2O_H2_N2
   constrainedby Modelica.Media.Interfaces.PartialMedium
   annotation (choicesAllMatching = true,Dialog(group="Fluids"));
@@ -81,12 +81,12 @@ Real k4[N] "integrated coefficient from DGM";
 Medium_Air.BaseProperties[N] state_an(
   each preferredMediumStates=false,      each T( start= T_op_start),
                                          each p(start = an_p_start),
-                                         each  X(start=X_start_an[1:Medium_Air.nX]));
+                                         each  X(start=X_start_an));
 
  Medium_Fuel.BaseProperties[N] state_cat(
   each preferredMediumStates=false,      each T(start = T_op_start),
                                          each p(start = cat_p_start),
-                                         each  X(start={0.9,0.1,0}));
+                                         each  X(start=X_start_cat));
 
   parameter HTSE.Electrolysers.SOEC.BaseClasses.Data.cell_parameter data;
 
